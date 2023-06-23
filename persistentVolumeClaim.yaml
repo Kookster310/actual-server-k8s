@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: PersistentVolumeClaim
 metadata:
   name: actual-data
+  namespace: actual-server
   labels:
     app: actual
 apiVersion: v1

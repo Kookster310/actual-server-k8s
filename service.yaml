@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Service
 metadata:
   name: actual
+  namespace: actual-server
   labels:
     app: actual
 apiVersion: v1

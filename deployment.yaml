@@ -28,7 +28,7 @@ spec:
               name: actual-data
           env:
             - name: ACTUAL_HOSTNAME
-              value: {{ HOSTNAME }}
+              value: actual.310networks.com
       volumes:
         - name: actual-data
           persistentVolumeClaim:

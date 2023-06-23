@@ -4,15 +4,12 @@ metadata:
   name: actual
   labels:
     app: actual
-  annotations:
-    kubesailEditorUid: 6ddcefe8-2b31-4c43-9d9a-67cb12a3fec1
-    kubesail.com/template: erulabs/actual:v6
 apiVersion: v1
 spec:
   ports:
     - name: http
       protocol: TCP
-      port: 5006
+      port: {{ PORT }}
       targetPort: http
   selector:
     app: actual

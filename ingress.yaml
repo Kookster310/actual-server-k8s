@@ -8,10 +8,9 @@ apiVersion: networking.k8s.io/v1
 spec:
   tls:
     - hosts:
-        - actual.{{ CLUSTER_ADDRESS }}
-        - actual.{{ LOCAL_CLUSTER_ADDRESS }}
+        - actual.{{ HOSTNAME }}
   rules:
-    - host: actual.{{ CLUSTER_ADDRESS }}
+    - host: actual.{{ HOSTNAME }}
       http:
         paths:
           - pathType: ImplementationSpecific
@@ -20,7 +19,7 @@ spec:
                 name: actual
                 port:
                   name: http
-    - host: actual.{{ LOCAL_CLUSTER_ADDRESS }}
+    - host: actual.{{ HOSTNAME }}
       http:
         paths:
           - pathType: ImplementationSpecific

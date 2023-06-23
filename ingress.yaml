@@ -1,24 +1,14 @@
-apiVersion: apps/v1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: actual
+  name: actual-ingress
   labels:
     app: actual
-apiVersion: networking.k8s.io/v1
 spec:
   tls:
-    - hosts:
-        - actual.310networks.com
+  - hosts:
+    - actual.310networks.com
   rules:
-    - host: actual.310networks.com
-      http:
-        paths:
-          - pathType: ImplementationSpecific
-            backend:
-              service:
-                name: actual
-                port:
-                  name: http
     - host: actual.310networks.com
       http:
         paths:

@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Ingress
+metadata:
+  name: actual
+  labels:
+    app: actual
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubesailEditorUid: 30e719db-e91b-4f67-95eb-3bbb7a0c8f06
+    kubesail.com/template: erulabs/actual:v6
+apiVersion: networking.k8s.io/v1
+spec:
+  tls:
+    - hosts:
+        - actual.{{ CLUSTER_ADDRESS }}
+        - actual.{{ LOCAL_CLUSTER_ADDRESS }}
+  rules:
+    - host: actual.{{ CLUSTER_ADDRESS }}
+      http:
+        paths:
+          - pathType: ImplementationSpecific
+            backend:
+              service:
+                name: actual
+                port:
+                  name: http
+    - host: actual.{{ LOCAL_CLUSTER_ADDRESS }}
+      http:
+        paths:
+          - pathType: ImplementationSpecific
+            backend:
+              service:
+                name: actual
+                port:
+                  name: http

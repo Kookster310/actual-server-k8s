@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: PersistentVolumeClaim
+metadata:
+  name: actual-data
+  labels:
+    app: actual
+apiVersion: v1
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.diskSize }}

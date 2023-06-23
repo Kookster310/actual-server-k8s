@@ -7,7 +7,7 @@ metadata:
 spec:
   strategy:
     type: Recreate
-  replicas: {{ .Values.replicas }}
+  replicas: 1
   selector:
     matchLabels:
       app: actual
@@ -28,7 +28,7 @@ spec:
               name: actual-data
           env:
             - name: ACTUAL_HOSTNAME
-              value: {{ .Values.hostname }}
+              value: actual.310networks.com
       volumes:
         - name: actual-data
           persistentVolumeClaim:

@@ -1,6 +1,0 @@
-# Hostname of application
-hostname: actual.310networks.com
-# Number of replicas
-replicas: 1
-# Disk size
-diskSize: 5Gi
